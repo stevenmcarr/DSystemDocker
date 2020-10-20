@@ -1,0 +1,8 @@
+#!/bin/bash
+DIR=`dirname $0`
+docker container kill dsystem
+docker container rm dsystem
+docker image rm dsystem
+docker build --tag dsystem $DIR 
+docker run --name dsystem dsystem &
+echo "dsystem docker container built and started"
